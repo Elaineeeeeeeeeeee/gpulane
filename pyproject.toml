@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gpulane"
+version = "0.1.1"
+description = "Shared-workstation Ray submission CLI for multi-repo training tasks."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+  {name = "Elaine Jiang"},
+]
+keywords = [
+  "ray",
+  "mlops",
+  "scheduler",
+  "gpu",
+  "training",
+  "cli",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: System :: Distributed Computing",
+]
+dependencies = [
+  "PyYAML>=6.0",
+  "ray[default]>=2.10",
+  "redis>=5.0",
+  "kafka-python>=2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Elaineeeeeeeeeeee/gpulane"
+Repository = "https://github.com/Elaineeeeeeeeeeee/gpulane"
+Issues = "https://github.com/Elaineeeeeeeeeeee/gpulane/issues"
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.2",
+  "ruff>=0.11",
+  "twine>=5.0",
+]
+
+[project.scripts]
+gpulane = "gpulane.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["gpulane*"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+  "E",
+  "F",
+  "I",
+]

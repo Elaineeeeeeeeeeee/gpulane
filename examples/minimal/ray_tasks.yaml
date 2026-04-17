@@ -1,0 +1,35 @@
+version: 1
+
+repo:
+  name: sample-repo
+
+tasks:
+  train.default:
+    kind: train
+    priority: high
+    description: Run the default training entrypoint.
+    cwd: training
+    command:
+      - python
+      - train.py
+    default_args:
+      - --config
+      - configs/train.yaml
+    resources:
+      cpu: 8
+      gpu: 1
+
+  train.sanity:
+    kind: train
+    priority: low
+    description: Run a smaller sanity-check job.
+    cwd: training
+    command:
+      - python
+      - train.py
+    default_args:
+      - --config
+      - configs/sanity.yaml
+    resources:
+      cpu: 4
+      gpu: 1

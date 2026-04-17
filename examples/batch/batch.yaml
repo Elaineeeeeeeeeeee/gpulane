@@ -1,0 +1,17 @@
+version: 1
+
+defaults:
+  manifest: ../minimal/ray_tasks.yaml
+  address: http://127.0.0.1:8265
+  summary_dir: /tmp/gpulane/example-batch
+
+jobs:
+  - task: train.default
+    name: train-lr1
+    overrides:
+      training.learning_rate: 0.001
+
+  - task: train.default
+    name: train-lr2
+    overrides:
+      training.learning_rate: 0.0005
